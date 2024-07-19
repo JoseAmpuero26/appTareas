@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+   --white: #fafafb;
+   --purple: #9a67ea;
+   --blue-light: #04d4c3;
+   --blue-dark: #2a73c2;
+   --green: #2c7b90;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--purple), var(--blue-light));
+    min-height: 100vh;
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+}
+
+.container {
+    max-width: 80%;
+    width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.perfil h1 {
+    color: var(--white);
+}
+
+.perfil span {
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+#fecha {
+    color: var(--white);
+    padding: 50px 0 5px 0px;
+    text-align: center;
+}
+
+.agregar-tarea {
+    background-color: var(--white);
+    border-radius: 15px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 10px;
+    margin: 40px 0;
+}
+
+.agregar-tarea input {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+    padding-left: 10px;
+}
+
+.agregar-tarea input::placeholder {
+   font-size: 1.1rem;
+   color: var(--purple);
+}
+
+.agregar-tarea i {
+    font-size: 50px;
+    color: var(--purple);
+}
+
+.agregar-tarea i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.seccion-tarea h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.seccion-tarea ul {
+    list-style: none;
+    padding: 0;
+}
+
+.seccion-tarea li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, var(--blue-dark), var(--green));
+    border-radius: 15px;
+    padding: 10px;
+    color: var(--white);
+    margin: 5px 0;
+}
+
+.seccion-tarea i {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.seccion-tarea > ul p {
+    font-size: 1.2rem;
+}
+
+.seccion-tarea i:hover {
+    color: var(--blue-light);
+    cursor: pointer;
+}
+
+.seccion-tarea .edit {
+    color: var(--purple);
+}
+
+.seccion-tarea .edit:hover {
+    color: var(--blue-light);
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: var(--blue-light);
+}
+
+#lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.icon-container {
+    display: flex;
+    gap: 5px;
+}
+
+#lista li i {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.busqueda-tarea {
+    margin: 20px 0;
+}
+
+.busqueda-tarea input {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    padding-left: 10px;
+    font-size: 1.1rem;
+    color: var(--purple);
+}
+
+.filtros-tarea {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.filtros-tarea button {
+    background-color: var(--purple);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.filtros-tarea button:hover {
+    background-color: var(--blue-light);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-text {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.task-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Ajusta según tu diseño */
+}
+
+.task-date {
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.fa-edit, .fa-trash {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
