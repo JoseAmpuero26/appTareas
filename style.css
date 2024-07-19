@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+=======
+/* Reseteo de estilos básicos */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+<<<<<<< HEAD
+=======
+/* Variables de colores */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 :root {
    --white: #fafafb;
    --purple: #9a67ea;
@@ -12,6 +20,10 @@
    --green: #2c7b90;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo del cuerpo de la página */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 body {
     background: linear-gradient(to bottom, var(--purple), var(--blue-light));
     min-height: 100vh;
@@ -24,6 +36,10 @@ body {
     overflow-y: scroll;
 }
 
+<<<<<<< HEAD
+=======
+/* Contenedor principal */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .container {
     max-width: 80%;
     width: 400px;
@@ -33,6 +49,10 @@ body {
     background: transparent;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo del perfil */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .perfil h1 {
     color: var(--white);
 }
@@ -48,6 +68,10 @@ body {
     text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo para la sección de agregar tareas */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .agregar-tarea {
     background-color: var(--white);
     border-radius: 15px;
@@ -83,6 +107,10 @@ body {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo para la sección de tareas */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .seccion-tarea h3 {
     color: var(--white);
     margin-bottom: 20px;
@@ -104,6 +132,10 @@ body {
     margin: 5px 0;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo para los íconos en la sección de tareas */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .seccion-tarea i {
     font-size: 25px;
     margin-right: 10px;
@@ -131,6 +163,10 @@ body {
     color: var(--blue-light);
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo para el ítem de la lista */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 #lista li {
     display: flex;
     justify-content: space-between;
@@ -139,16 +175,94 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
+<<<<<<< HEAD
 .icon-container {
     display: flex;
     gap: 5px;
 }
 
+=======
+/* Contenedor para los íconos de editar y eliminar */
+.icon-container {
+    display: flex;
+    gap: 5px; /* Ajusta este valor para el espacio entre los iconos */
+}
+
+/* Estilo para los íconos de editar y eliminar */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 #lista li i {
     cursor: pointer;
     font-size: 18px;
 }
 
+<<<<<<< HEAD
+=======
+/* Modal de edición */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #2c7b90;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Cambia el color del texto en el modal a blanco */
+.modal-content h2 {
+    color: var(--white);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    background-color: var(--purple);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: var(--blue-light);
+}
+
+/* Estilo para la búsqueda de tareas */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .busqueda-tarea {
     margin: 20px 0;
 }
@@ -163,6 +277,10 @@ body {
     color: var(--purple);
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo para los filtros de tarea */
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
 .filtros-tarea {
     display: flex;
     justify-content: space-between;
@@ -183,6 +301,7 @@ body {
 .filtros-tarea button:hover {
     background-color: var(--blue-light);
 }
+<<<<<<< HEAD
 
 .task-item {
     display: flex;
@@ -216,3 +335,5 @@ body {
     cursor: pointer;
 }
 
+=======
+>>>>>>> 61f277ee1640e6e40dbc8f7c37266e456ffc7b4e
