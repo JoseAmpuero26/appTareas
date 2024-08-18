@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8"> <!-- Codificación de caracteres -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidad con Internet Explorer -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste para dispositivos móviles -->
-    <title>APP TO DO LIST</title>  
+    <title>APP TO DO LIST</title>
     <!-- Importación de fuentes y estilos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,51 +13,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-<div class="container">
-    <!-- Sección de perfil con fecha y saludo -->
-    <div class="perfil">
-        <div id="fecha"></div> <!-- Contenedor para mostrar la fecha -->
-        <h1>Hola </h1>
-        <span>Vamos a cumplir tus metas</span>
-    </div>
 
-    <!-- Sección para agregar nuevas tareas -->
-    <div class="agregar-tarea">
-        <input type="text" id="input" placeholder="agregar una tarea"> <!-- Campo de entrada de texto para nuevas tareas -->
-        <i id="boton-enter" class="fas fa-plus-circle"></i> <!-- Botón para agregar la tarea -->
-    </div>
-
-    <!-- Sección para buscar tareas existentes -->
-    <div class="busqueda-tarea">
-        <input type="text" id="busqueda" placeholder="Buscar tarea"> <!-- Campo de entrada de texto para buscar tareas -->
-    </div>
-
-    <!-- Botones para filtrar las tareas por estado -->
-    <div class="filtros-tarea">
-        <button id="filtro-todas">Todas</button>
-        <button id="filtro-pendientes">Pendientes</button>
-        <button id="filtro-terminadas">Terminadas</button>
-    </div>
-
-    <!-- Sección donde se mostrará la lista de tareas -->
-    <div class="seccion-tarea">
-        <h3>Estas son tus Tareas: </h3>
-        <ul id="lista"></ul> <!-- Lista de tareas -->
-    </div>
-
-    <!-- Modal para editar tareas -->
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span> <!-- Botón para cerrar el modal -->
-            <h2>Editar Tarea</h2>
-            <input type="text" id="editTaskName" placeholder="Nombre de la tarea"> <!-- Campo de entrada de texto para el nombre de la tarea -->
-            <input type="text" id="editTaskDate" placeholder="Fecha (dd/mm)"> <!-- Campo de entrada de texto para la fecha de la tarea -->
-            <button id="saveEdit">Guardar Cambios</button> <!-- Botón para guardar los cambios -->
+    <div class="container">
+        <!-- Sección de perfil con fecha y saludo -->
+        <div class="perfil">
+            <div id="fecha"></div> <!-- Contenedor para mostrar la fecha -->
+            <h1>Hola </h1>
+            <span>Vamos a cumplir tus metas</span>
         </div>
+
+        <!-- Sección para agregar nuevas tareas -->
+        <div class="agregar-tarea">
+            <input type="text" id="input" placeholder="agregar una tarea">
+            <!-- Campo de entrada de texto para nuevas tareas -->
+            <i id="boton-enter" class="fas fa-plus-circle"></i> <!-- Botón para agregar la tarea -->
+        </div>
+
+        <!-- Sección para buscar tareas existentes -->
+        <div class="busqueda-tarea">
+            <input type="text" id="busqueda" placeholder="Buscar tarea">
+            <!-- Campo de entrada de texto para buscar tareas -->
+        </div>
+
+        <!-- Botones para filtrar las tareas por estado -->
+        <div class="filtros-tarea">
+            <button id="filtro-todas">Todas</button>
+            <button id="filtro-pendientes">Pendientes</button>
+            <button id="filtro-terminadas">Terminadas</button>
+        </div>
+
+        <!-- Sección donde se mostrará la lista de tareas -->
+        <div class="seccion-tarea">
+            <h3>Estas son tus Tareas: </h3>
+            <ul id="lista"></ul> <!-- Lista de tareas -->
+        </div>
+
+        <!-- Modal para editar tarea -->
+        <div id="editTaskModal" class="modal">
+            <div class="modal-content">
+                <span class="closeBtn">&times;</span>
+                <h2>Editar Tarea</h2>
+                <hr>
+                <label for="editTaskName">Nombre de la tarea:</label>
+                <input type="text" id="editTaskName" class="modal-input">
+                <label for="editTaskDate">Fecha (dd/mm):</label>
+                <input type="text" id="editTaskDate" class="modal-input">
+                <button id="saveTaskChangesBtn">Guardar Cambios</button>
+            </div>
+        </div>
+
     </div>
-</div>
-<script src="index.js"></script> <!-- Archivo JavaScript -->
+    <script src="index.js"></script> <!-- Archivo JavaScript -->
 </body>
+
 </html>

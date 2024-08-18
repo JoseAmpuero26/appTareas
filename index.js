@@ -94,24 +94,75 @@ class TodoApp {
         const tareaId = element.id;
         const tareaNombre = tareaTexto.querySelector('.task-name').textContent;
         const tareaFecha = tareaTexto.querySelector('.task-date').textContent;
-        const nuevoNombre = prompt('Edita la tarea:', tareaNombre);
-        const nuevaFecha = prompt('Edita la fecha (dd/mm):', tareaFecha);
-
-        if (nuevoNombre && nuevaFecha) {
-            if (!this.validarNombre(nuevoNombre)) {
-                alert('Nombre de tarea inválido. Asegúrate de que no sea un enlace, no contenga emojis, y tenga caracteres permitidos.');
-            } else if (nuevoNombre.length > this.MAX_LENGTH) {
-                alert(`El nombre de la tarea no puede exceder los ${this.MAX_LENGTH} caracteres.`);
-            } else if (this.validarFecha(nuevaFecha)) {
-                tareaTexto.querySelector('.task-name').textContent = nuevoNombre;
-                tareaTexto.querySelector('.task-date').textContent = nuevaFecha;
-                this.LIST[tareaId].nombre = nuevoNombre;
-                this.LIST[tareaId].fechaCreacion = nuevaFecha;
-                localStorage.setItem('TODO', JSON.stringify(this.LIST));
-            } else {
-                alert('Formato de fecha incorrecto. Utiliza dd/mm.');
+    
+        // Abrir el modal
+        const modal = document.getElementById("editTaskModal");
+        const closeBtn = modal.querySelector(".closeBtn");
+        const saveBtn = modal.querySelector("#saveTaskChangesBtn");
+    
+        const inputNombre = modal.querySelector("#editTaskName");
+        const inputFecha = modal.querySelector("#editTaskDate");
+    
+        // Llenar los campos del modal con los valores actuales
+        inputNombre.value = tareaNombre;
+        inputFecha.value = tareaFecha;
+    
+        modal.style.display = "block";
+    
+        // Cerrar el modal cuando se haga clic en la "x"
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+    
+        // Cerrar el modal si se hace clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
-        }
+        };
+    
+        // Guardar cambios cuando se presione el botón
+        saveBtn.onclick = () => {
+            const nuevoNombre = inputNombre.value;
+            const nuevaFecha = inputFecha.value;
+    
+            if (nuevoNombre && nuevaFecha) {
+                if (!this.validarNombre(nuevoNombre)) {
+                    this.mostrarAlerta('Nombre de tarea inválido. Asegúrate de que no sea un enlace, no contenga emojis, y tenga caracteres permitidos.');
+                } else if (nuevoNombre.length > this.MAX_LENGTH) {
+                    this.mostrarAlerta(`El nombre de la tarea no puede exceder los ${this.MAX_LENGTH} caracteres.`);
+                } else if (this.validarFecha(nuevaFecha)) {
+                    tareaTexto.querySelector('.task-name').textContent = nuevoNombre;
+                    tareaTexto.querySelector('.task-date').textContent = nuevaFecha;
+                    this.LIST[tareaId].nombre = nuevoNombre;
+                    this.LIST[tareaId].fechaCreacion = nuevaFecha;
+                    localStorage.setItem('TODO', JSON.stringify(this.LIST));
+                    modal.style.display = "none"; // Cerrar el modal al guardar
+                } else {
+                    this.mostrarAlerta('Formato de fecha incorrecto. Utiliza dd/mm.');
+                }
+            }
+        };
+    }
+    
+    // Método para mostrar alertas en lugar de alert()
+    mostrarAlerta(mensaje) {
+        const alertaModal = document.createElement('div');
+        alertaModal.className = 'modal';
+        alertaModal.style.display = 'block';
+        alertaModal.innerHTML = `
+            <div class="modal-content">
+                <span class="closeBtn">&times;</span>
+                <p>${mensaje}</p>
+            </div>
+        `;
+        document.body.appendChild(alertaModal);
+    
+        const closeBtn = alertaModal.querySelector('.closeBtn');
+        closeBtn.onclick = function() {
+            alertaModal.style.display = "none";
+            document.body.removeChild(alertaModal);
+        };
     }
 
     validarNombre(nombre) {
@@ -144,9 +195,9 @@ class TodoApp {
         const tarea = this.input.value;
         if (tarea) {
             if (!this.validarNombre(tarea)) {
-                alert('Nombre de tarea inválido. Asegúrate de que no sea un enlace, no contenga emojis, y tenga caracteres permitidos.');
+                this.mostrarAlerta('Nombre de tarea inválido. Asegúrate de que no sea un enlace, no contenga emojis, y tenga caracteres permitidos.');
             } else if (tarea.length > this.MAX_LENGTH) {
-                alert(`El nombre de la tarea no puede exceder los ${this.MAX_LENGTH} caracteres.`);
+                this.mostrarAlerta(`El nombre de la tarea no puede exceder los ${this.MAX_LENGTH} caracteres.`);
             } else {
                 const fechaCreacion = new Date().toLocaleDateString('es-MX', { day: '2-digit', month: '2-digit' });
                 this.agregarTarea(tarea, this.id, false, false, fechaCreacion);
@@ -206,6 +257,7 @@ class TodoApp {
     }
 
     mostrarPendientes() {
+        this.limpiarBusqueda();
         const listaPendientes = this.LIST.filter(tarea => !tarea.realizado && !tarea.eliminado);
         this.cargarLista(listaPendientes);
     }
